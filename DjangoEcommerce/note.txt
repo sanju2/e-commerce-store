@@ -17,4 +17,11 @@ Setup And Configuration
 - pip3 install django-crispy-forms
 - pip3 install stripe
 
+user1
+Dubai123
 
+database
+ecomapp
+admin
+ecomapp.cfvufltihmhv.us-east-2.rds.amazonaws.com
+CHg15ZRg0YXDKmmnol9n
