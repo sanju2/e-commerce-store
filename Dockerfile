@@ -8,16 +8,17 @@ ENV PYTHONUNBUFFERED=1
 # Set working directory
 WORKDIR /app
 
-# Install dependencies
-COPY DjangoEcommerce/requirements.txt /app/
-
-# Install system dependencies and clean up afterwards to reduce image size
+# Install system dependencies, including MySQL/MariaDB dev libraries
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     libffi-dev \
     python3-dev \
+    default-libmysqlclient-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Copy the requirements file
+COPY DjangoEcommerce/requirements.txt /app/
 
 # Upgrade pip, setuptools, and wheel for smoother installations
 RUN pip install --upgrade pip setuptools wheel
