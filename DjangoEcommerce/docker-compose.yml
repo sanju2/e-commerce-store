@@ -1,0 +1,10 @@
+name: capstone-project
+
+services:
+  app:
+    image: capstone
+    container_name: capstone
+    ports:
+      - "8001:8000"
+    volumes:
+      - .:/app
