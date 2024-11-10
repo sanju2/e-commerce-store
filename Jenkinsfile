@@ -22,9 +22,11 @@ node {
 
     stage('Push image') {
 
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AWS_CREDENTIALS_ID']]) {
         sh "aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 932747549174.dkr.ecr.us-east-2.amazonaws.com"
-        
         sh "docker push 932747549174.dkr.ecr.us-east-2.amazonaws.com/capstone:${env.BUILD_NUMBER}"
+        }
+        
     }
     
     stage('Trigger ManifestUpdate') {
