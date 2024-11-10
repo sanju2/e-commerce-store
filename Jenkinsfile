@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("932747549174.dkr.ecr.us-east-2.amazonaws.com/capstone")
+       app = docker.build("932747549174.dkr.ecr.us-east-2.amazonaws.com/capstone", "./DjangoEcommerce")
     }
 
     stage('Test image') {
