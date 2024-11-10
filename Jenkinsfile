@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("lasanthasanjeewa/webtier")
+       app = docker.build("932747549174.dkr.ecr.us-east-2.amazonaws.com/capstone")
     }
 
     stage('Test image') {
@@ -21,10 +21,10 @@ node {
     }
 
     stage('Push image') {
+
+        sh "aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 932747549174.dkr.ecr.us-east-2.amazonaws.com"
         
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            app.push("${env.BUILD_NUMBER}")
-        }
+        sh "docker push 932747549174.dkr.ecr.us-east-2.amazonaws.com/capstone:${env.BUILD_NUMBER}"
     }
     
     stage('Trigger ManifestUpdate') {
