@@ -72,7 +72,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecomapp',
         'USER': 'admin',
-        'PASSWORD': 'To2FLCAuC2gGcVMxw1vc',
+        'PASSWORD': 'WXX1YyjBMBZDPStIWaf7',
         'HOST':'ecomapp.cfvufltihmhv.us-east-2.rds.amazonaws.com',
         'PORT':'3306',
     }
